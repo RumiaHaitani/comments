@@ -1,3 +1,4 @@
+/* 1. Корневые переменные цветовой схемы */
 :root {
     --bg-color: #0b0f19;
     --card-bg: #151d30;
@@ -7,15 +8,15 @@
     --success: #10b981;
 }
 
-
-/*Главный селектор страницы*/
+/* 2. Сброс отступов и универсальный box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-/*стиль тега Тела*/
+
+/* 3. Базовые стили страницы */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -23,7 +24,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-/*Стиль тега - Заголовок*/
+
+/* 4. Верхняя панель сайта */
 header {
     background-color: var(--card-bg);
     padding: 1.5rem 2rem;
@@ -32,13 +34,15 @@ header {
     align-items: center;
     border-bottom: 1px solid #23314f;
 }
-/*Стиль логотипа*/
+
+/* 5. Логотип банка */
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--accent-color);
 }
 
+/* 6. Виджет погоды в шапке */
 .weather-widget {
     background: #1e293b;
     padding: 0.5rem 1rem;
@@ -46,6 +50,7 @@ header {
     font-size: 0.9rem;
 }
 
+/* 7. Основная область контента */
 main {
     flex: 1;
     padding: 2rem;
@@ -54,12 +59,14 @@ main {
     width: 100%;
 }
 
+/* 8. Сетка дашборда */
 .dashboard {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
+/* 9. Универсальная карточка */
 .card {
     background-color: var(--card-bg);
     border-radius: 12px;
@@ -67,6 +74,7 @@ main {
     border: 1px solid #23314f;
 }
 
+/* 10. Элементы баланса, формы, кнопок и логов */
 .balance {
     font-size: 2.5rem;
     font-weight: bold;

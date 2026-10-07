@@ -1,16 +1,20 @@
-//список событий документа
+// 1. Запускаем код после полной загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
+    // 2. Получаем ссылки на элементы интерфейса
     const logConsole = document.getElementById('log-console');
     const balanceAmount = document.getElementById('balance-amount');
     const paymentForm = document.getElementById('payment-form');
+    // 3. Начальный баланс пользователя
     let currentBalance = 50000;
 
+    // 4. Функция добавления сообщения в лог
     function addLog(message) {
         const timestamp = new Date().toLocaleTimeString();
         logConsole.innerHTML += `[${timestamp}] ${message}<br>`;
         logConsole.scrollTop = logConsole.scrollHeight;
     }
-    //симуляция подключения к серверу
+
+    // 5. Загрузка конфигурации сервера
     async function fetchServerConfig() {
         try {
             addLog("Запрос конфигурации с SERVER_api_SELECTEL...");
@@ -21,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
             addLog("Использование локальной эмуляции конфигурации сервера.");
         }
     }
-    //подключение и обновление погоды
+
+    // 6. Обновление данных о погоде
     async function updateWeather() {
         try {
             const response = await fetch('/api/weather');
@@ -33,11 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 7. Обработка отправки формы платежа
     paymentForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        // 8. Считываем выбранный банк и сумму
         const bank = document.getElementById('bank-select').value;
         const amount = parseFloat(document.getElementById('amount-input').value);
 
+        // 9. Проверяем, хватает ли средств
         if (amount > currentBalance) {
             addLog(`Ошибка: Недостаточно средств для списания ${amount} ₽`);
             return;
@@ -45,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addLog(`Инициализация шлюза API_Payment для ${bank}...`);
         
+        // 10. Отправляем платёж на сервер и обрабатываем ответ
         try {
             const response = await fetch('/api/pay', {
                 method: 'POST',

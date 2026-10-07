@@ -1,20 +1,26 @@
 <!DOCTYPE html>
+<!-- 1. Корневой элемент, язык страницы — русский -->
 <html lang="ru">
 <head>
+    <!-- 2. Кодировка символов -->
     <meta charset="UTF-8">
+    <!-- 3. Настройка адаптивности для мобильных устройств -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 4. Заголовок вкладки браузера -->
     <title>Selectel Bank Simulator</title>
-    <!--ИМПОРТИРОВАНИЕ СТИЛЕЙ CSS-->
+    <!-- 5. Подключение внешнего CSS-файла -->
     <link rel="stylesheet" href="../CSS/index.css"> 
 </head>
 <body>
-    <!--ШАпка логотип-->
+    <!-- 6. Шапка сайта: логотип и виджет погоды -->
     <header>
         <div class="logo">SELECTEL BANK</div>
         <div class="weather-widget" id="weather-display">Загрузка погоды...</div>
     </header>
+    <!-- 7. Основной контент страницы -->
     <main>
         <div class="dashboard">
+            <!-- 8. Карточка счёта и карточка имитации платежа -->
             <div class="card">
                 <h2>Ваш счет</h2>
                 <div class="balance" id="balance-amount">50 000.00 ₽</div>
@@ -26,7 +32,6 @@
                     <div class="form-group">
                         <label for="bank-select">Выберите банк-эквайер</label>
                         <select id="bank-select">
-                            <!--выпадающее меню с выбор банка-->
                             <option value="SBER">Сбербанк API</option>
                             <option value="TINKOFF">Т-Банк API</option>
                         </select>
@@ -38,14 +43,14 @@
                     <button type="submit">Провести платеж</button>
                 </form>
             </div>
+            <!-- 9. Карточка с логами сервера и транзакций -->
             <div class="card" style="grid-column: 1 / -1;">
                 <h2>Логи сервера и транзакций</h2>
                 <div class="logs" id="log-console"></div>
             </div>
         </div>
     </main>
-    <!--ИМПОРТИРОВАНИЕ СТИЛЕЙ CSS-->
+    <!-- 10. Подключение внешнего JavaScript-файла -->
     <script src="../JS/index.js"></script>
 </body>
 </html>
-
